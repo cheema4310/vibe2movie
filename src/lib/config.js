@@ -1,6 +1,6 @@
 const config = {
-  tmdbApi: process.env.TMDB_API_KEY,
-  tmdbUrl: process.env.TMDB_URL,
+  tmdbApi: process.env.NEXT_PUBLIC_TMDB_API_KEY,
+  tmdbUrl: process.env.NEXT_PUBLIC_TMDB_URL,
 };
 
 export default config;

@@ -26,7 +26,7 @@
     @apply font-black text-xl;
   }
   .hoverBg {
-    @apply hover:bg-glassOrange hover:border-darker;
+    @apply hover:bg-glassOrange hover:border-darker hover:text-lightest;
   }
 }
 
