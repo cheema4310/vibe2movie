@@ -25,20 +25,6 @@ export default function Hero() {
     },
   };
 
-  // getting movie list
-  const getMovieList = async () => {
-    try {
-      const response = await fetch(
-        `${url}&with_genres=${genre_ids_str}`,
-        options
-      );
-      const data = await response.json();
-      setMovieList(data.results);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   const getGenreIDs = () => {
     genre_ids = vibesGenre[selectedVibe];
   };
@@ -58,15 +44,35 @@ export default function Hero() {
   }
 
   useEffect(() => {
+    if (selectedVibe === '') {
+      return;
+    }
+    // getting movie list
+    const getMovieList = async () => {
+      try {
+        const response = await fetch(
+          `${url}&with_genres=${genre_ids_str}`,
+          options
+        );
+        const data = await response.json();
+        setMovieList(data.results);
+      } catch (error) {
+        console.log(error);
+      }
+    };
     getMovieList();
   }, [selectedVibe]);
 
+  console.log(movieList);
+
   return (
     <div className="py-6 w-11/12 mx-auto md:w-5/6 lg:w-2/3 2xl:w-1/2">
-      {!selectedVibe ? (
-        <HeroSelection setSelectedVibe={setSelectedVibe} />
-      ) : (
+      {!selectedVibe && <HeroSelection setSelectedVibe={setSelectedVibe} />}
+
+      {selectedVibe && movieList ? (
         <SuggestMovie movieList={movieList} />
+      ) : (
+        <>Loading</>
       )}
     </div>
   );
