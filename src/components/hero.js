@@ -1,13 +1,15 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import HeroSelection from './heroSelection';
 
 import SuggestMovie from './suggestMovie';
 import { vibesGenre } from '@/data';
 import config from '@/lib/config';
+import Header from './header';
 
 export default function Hero() {
+  const [isLoading, setIsLoading] = useState(false);
   const [selectedVibe, setSelectedVibe] = useState('');
   const [movieList, setMovieList] = useState(null);
 
@@ -47,8 +49,10 @@ export default function Hero() {
     if (selectedVibe === '') {
       return;
     }
+
     // getting movie list
     const getMovieList = async () => {
+      setIsLoading(true);
       try {
         const response = await fetch(
           `${url}&with_genres=${genre_ids_str}`,
@@ -56,6 +60,7 @@ export default function Hero() {
         );
         const data = await response.json();
         setMovieList(data.results);
+        setIsLoading(false);
       } catch (error) {
         console.log(error);
       }
@@ -63,17 +68,18 @@ export default function Hero() {
     getMovieList();
   }, [selectedVibe]);
 
-  console.log(movieList);
-
   return (
-    <div className="py-6 w-11/12 mx-auto md:w-5/6 lg:w-2/3 2xl:w-1/2">
+    <div className="mt-5 w-11/12 mx-auto md:w-5/6 lg:w-2/3 2xl:w-1/2">
+      <Header
+        setSelectedVibe={setSelectedVibe}
+        selectedVibe={selectedVibe}
+        setMovieList={setMovieList}
+      />
       {!selectedVibe && <HeroSelection setSelectedVibe={setSelectedVibe} />}
-
+      {isLoading && <p>Fetching Movie Data from TMDB</p>}
       {selectedVibe && movieList ? (
         <SuggestMovie movieList={movieList} />
-      ) : (
-        <>Loading</>
-      )}
+      ) : null}
     </div>
   );
 }

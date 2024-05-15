@@ -1,4 +1,4 @@
-const movieGenres = {
+export const movieGenres = {
   28: 'Action',
   12: 'Adventure',
   16: 'Animation',

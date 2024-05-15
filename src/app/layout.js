@@ -14,8 +14,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="grid grid-rows-[auto_1fr_auto] h-full bg-darker text-lighter">
-          <Header />
+        <div className="grid grid-rows-[1fr_auto] min-h-screen bg-darker text-lighter">
           {children}
           <Footer />
         </div>

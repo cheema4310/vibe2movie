@@ -4,7 +4,7 @@ import VibeCard from './vibeCard';
 export default function HeroSelection({ setSelectedVibe }) {
   return (
     <>
-      <h2 className="mainHeading py-4">
+      <h2 className="mainHeading">
         Discover <span className="text-glassOrange">movies</span> that match
         your Cinematic <span className="text-glassOrange">vibe</span>
       </h2>
