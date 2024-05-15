@@ -66,7 +66,7 @@ export default function Hero() {
       }
     };
     getMovieList();
-  }, [selectedVibe]);
+  }, [selectedVibe, genre_ids_str, url]);
 
   return (
     <div className="mt-5 w-11/12 mx-auto md:w-5/6 lg:w-2/3 2xl:w-1/2">

@@ -67,8 +67,11 @@ export default function SuggestMovie({ movieList }) {
         <span className="text-lightest">{rating}</span>/10
       </div>
       <div className="flex items-center gap-3 flex-wrap">
-        {genre_texts.map((genre) => (
-          <div className="px-4 py-2 rounded-3xl font-semibold text-xs border-[1.5px] border-glassOrange">
+        {genre_texts.map((genre, idx) => (
+          <div
+            key={idx}
+            className="px-4 py-2 rounded-3xl font-semibold text-xs border-[1.5px] border-glassOrange"
+          >
             {genre}
           </div>
         ))}
