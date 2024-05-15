@@ -23,6 +23,15 @@ module.exports = {
         btn: ['Rubik', 'sans-serif'],
         fancyFont: ['Cormorant Garamond', 'serif'],
       },
+      animation: {
+        loading: 'loading 1s linear infinite alternate',
+      },
+      keyframes: {
+        loading: {
+          '0%': { backgroundColor: '#3D3D3D' },
+          '100%': { backgroundColor: '#292929' },
+        },
+      },
     },
   },
   plugins: [],

@@ -1,12 +1,14 @@
 'use client';
 
-import { Suspense, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import HeroSelection from './heroSelection';
 
 import SuggestMovie from './suggestMovie';
 import { vibesGenre } from '@/data';
 import config from '@/lib/config';
 import Header from './header';
+
+import PageSkeleton from './pageSkeleton';
 
 export default function Hero() {
   const [isLoading, setIsLoading] = useState(false);
@@ -76,7 +78,7 @@ export default function Hero() {
         setMovieList={setMovieList}
       />
       {!selectedVibe && <HeroSelection setSelectedVibe={setSelectedVibe} />}
-      {isLoading && <p>Fetching Movie Data from TMDB</p>}
+      {isLoading && <PageSkeleton />}
       {selectedVibe && movieList ? (
         <SuggestMovie movieList={movieList} />
       ) : null}

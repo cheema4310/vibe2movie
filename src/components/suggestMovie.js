@@ -1,6 +1,7 @@
 import { movieGenres } from '@/data';
 import config from '@/lib/config';
 import { useEffect, useState } from 'react';
+import TrailerSkeleton from './trailerSkeleton';
 
 export default function SuggestMovie({ movieList }) {
   const generateRand = Math.floor(Math.random() * 20);
@@ -46,7 +47,7 @@ export default function SuggestMovie({ movieList }) {
   return (
     <div className="grid">
       <div className="">
-        {isLoading && <p>Fetching Youtube tailer for the movie</p>}
+        {isLoading && <TrailerSkeleton />}
         {trailerUrl && (
           <iframe
             // width="560"
@@ -59,6 +60,7 @@ export default function SuggestMovie({ movieList }) {
           ></iframe>
         )}
       </div>
+
       <div className="py-2 text-glassOrange text-3xl font-black font-para">
         {movie.title}
       </div>
@@ -80,6 +82,7 @@ export default function SuggestMovie({ movieList }) {
       <div className="pt-4 w-full h-52 overflow-hidden font-para font-medium text-justify">
         {movie.overview}
       </div>
+
       <div onClick={nextMovieHandler} className="flex justify-end items-center">
         <div className="p-3 rounded-2xl cursor-pointer font-btn font-medium border-glassOrange border-[1.5px] hoverBg">
           Next &#8594;
