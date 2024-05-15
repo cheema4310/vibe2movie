@@ -30,8 +30,8 @@ export default function SuggestMovie({ movieList }) {
 
         if (data.items.length > 0) {
           const videoId = data.items[0].id.videoId;
-          setTrailerUrl(`https://www.youtube.com/embed/${videoId}`);
           setIsLoading(false);
+          setTrailerUrl(`https://www.youtube.com/embed/${videoId}`);
         }
       } catch (error) {
         console.error('Error fetching trailer:', error);
@@ -50,7 +50,7 @@ export default function SuggestMovie({ movieList }) {
     <div className="grid">
       <div className="">
         {isLoading && <TrailerSkeleton />}
-        {trailerUrl && (
+        {trailerUrl && !isLoading && (
           <iframe
             // width="560"
             // height="315"
