@@ -10,6 +10,8 @@ export default function SuggestMovie({ movieList }) {
   const [isLoading, setIsLoading] = useState(false);
 
   const nextMovieHandler = () => {
+    setTrailerUrl('');
+    setIsLoading(true);
     setMovie(movieList[generateRand]);
   };
 
