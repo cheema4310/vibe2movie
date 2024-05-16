@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <div className="mt-6 text-sm text-center font-light py-2">
+    <div className="mt-6 text-sm text-center font-light py-2 mb-20">
       Built by{' '}
       <Link
         href="https://cv.buypits.com/"
