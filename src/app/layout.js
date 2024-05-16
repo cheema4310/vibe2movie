@@ -19,6 +19,10 @@ export default function RootLayout({ children }) {
           sizes="180x180"
           href="/apple-touch-icon.png"
         />
+        <meta
+          name="google-adsense-account"
+          content="ca-pub-5525727232661114"
+        ></meta>
       </head>
       <body className={inter.className}>
         <div className="grid grid-rows-[1fr_auto] min-h-screen bg-darker text-lighter">
