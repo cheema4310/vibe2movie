@@ -3,10 +3,7 @@
 **Find the perfect movie for your current vibe.**  
 A fast, fun, and beautiful movie recommendation app that instantly suggests films + official trailers based on how you're feeling right now.
 
-Built solo in just **12 days** (7 May 2024 – 18 May 2024) using **Next.js 14 (App Router)**.
-
-![Vibe2Movie Preview](https://github.com/cheema4310/vibe2movie/blob/main/public/preview.gif?raw=true)  
-*(Live demo → https://vibe2movie.vercel.app)*
+Built using **Next.js 14 (App Router)**.
 
 ### Live Demo
 🔗 https://vibe2movie.vercel.app
