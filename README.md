@@ -1,4 +1,3 @@
-```markdown
 # Vibe2Movie 🎬
 
 **Find the perfect movie for your current vibe.**  
