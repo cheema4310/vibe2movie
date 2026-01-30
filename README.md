@@ -77,4 +77,4 @@ Trailers via YouTube
 
 ⭐ If this helped you find your next movie or just made you smile — please give it a star!  
 It means the world to a solo developer.
-```
+
